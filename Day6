@@ -1,0 +1,17 @@
+ListNode* Solution::sortList(ListNode* A) {
+    vector<int>ans;
+    ListNode*ptr=A;
+    while(ptr!=NULL)
+    {
+        ans.push_back(ptr->val);
+       ptr=ptr->next;
+    }
+    sort(ans.begin(),ans.end());
+    ListNode*temp=A;
+    for(int i=0;i<ans.size();i++)
+    {
+        temp->val=ans[i];
+        temp=temp->next;
+     }
+     return A;
+}
