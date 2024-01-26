@@ -1,0 +1,17 @@
+int Solution::maxProfit(const vector<int> &A) {
+     int i = 0;
+     int  buy;
+     int  sell;
+     int  profit = 0;
+     int  N = A.size() - 1;
+        while (i < N) {
+            while (i < N && A[i + 1] <= A[i]) i++;
+            buy = A[i];
+
+            while (i < N && A[i + 1] >A[i]) i++;
+            sell = A[i];
+
+            profit += sell - buy;
+        }
+        return profit;
+}
