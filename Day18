@@ -1,0 +1,26 @@
+int Solution::isPalindrome(int A) {
+    int n=A;
+       int digi=0;
+      unsigned  int pali=0;
+       if(A<0)
+       {
+           return false;
+       }
+           else
+           {
+              while(A!=0)
+              {
+                  digi=A%10;
+                  pali=pali*10+digi;
+                  A=A/10;
+              }
+              if(n==pali)
+              {
+                  return true;
+              }
+              else
+              {
+                  return false;
+              }
+           }
+}
