@@ -1,0 +1,13 @@
+vector<int> Solution::getRow(int A) {
+    A=A+1;
+        vector<int>ans;
+        long long  ele=1;
+        ans.push_back(ele);
+        for(int i=1;i<A;i++)
+        {
+            ele=ele*(A-i);
+            ele=ele/(i);
+            ans.push_back(ele);
+        }
+        return ans;
+}
