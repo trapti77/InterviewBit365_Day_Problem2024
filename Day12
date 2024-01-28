@@ -1,0 +1,49 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ int length(ListNode *head){
+        int l = 0;
+        while(head){
+            l++;
+            head = head->next;
+        }
+        return l;
+    }
+
+ListNode* Solution::getIntersectionNode(ListNode* A, ListNode* B) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+     if(!A || !B) return NULL;
+
+        //step1
+        int lA = length(A), lB = length(B);
+
+        //step2
+        if(lA>lB){
+            while(lA>lB){
+               A = A->next;
+                lA--;
+            }
+        }
+        else if(lA<lB){
+            while(lA<lB){
+                B = B->next;
+                lB--;
+            }
+        }
+        
+        //step 3
+        while(A && B){
+            if(A==B) return A;
+           A = A->next;
+           B = B->next;
+        }
+        return NULL;
+}
