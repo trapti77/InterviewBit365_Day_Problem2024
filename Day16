@@ -1,0 +1,22 @@
+vector<int>generaterow(int n)
+{
+    int ans=1;
+vector<int>row;
+row.push_back(ans);
+for(int c=1;c<n;c++)
+{
+ans=ans*(n-c);
+ans=ans/(c);
+row.push_back(ans);
+}
+return row;
+}
+
+vector<vector<int> > Solution::solve(int A) {
+    vector<vector<int>>ans;
+        for(int i=1;i<=A;i++)
+        {
+            ans.push_back(generaterow(i));
+        }
+        return ans;
+}
